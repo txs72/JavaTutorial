@@ -1,5 +1,8 @@
 /*    */ package ch13;
-/*    */ 
+
+import java.util.Date;
+
+/*    */
 /*    */ public abstract class GeometricObject {
 /*  4 */   private String color = "white";
 /*    */   

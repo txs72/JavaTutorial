@@ -1,5 +1,8 @@
 /*    */ package ch13.exercise;
-/*    */ 
+
+import java.util.Date;
+
+/*    */
 /*    */ public abstract class GeometricObject implements Comparable<GeometricObject> {
 /*  4 */   private String color = "white";
 /*    */   

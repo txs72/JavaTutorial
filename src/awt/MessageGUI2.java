@@ -1,13 +1,14 @@
 /*    */ package awt;
-/*    */ import java.awt.BorderLayout;
-/*    */ import java.awt.Button;
-/*    */ import java.awt.FlowLayout;
-/*    */ import java.awt.GridLayout;
-/*    */ import java.awt.Label;
-/*    */ import java.awt.Panel;
-/*    */ import java.awt.TextArea;
-/*    */ import java.awt.TextField;
-/*    */ 
+/*    */ import java.awt.*;
+/*    */
+/*    */
+/*    */
+/*    */
+/*    */
+/*    */
+/*    */
+
+/*    */
 /*    */ public class MessageGUI2 extends Frame {
 /* 12 */   Label sentLabel = new Label("Messages Sent");
 /* 13 */   Label recvLabel = new Label("Messages Received");

@@ -1,5 +1,8 @@
 /*    */ package ch19;
-/*    */ 
+
+import java.util.ArrayList;
+
+/*    */
 /*    */ public class GenericStack<E> {
 /*  4 */   private ArrayList<E> list = new ArrayList<>();
 /*    */   

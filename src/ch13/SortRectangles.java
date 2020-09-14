@@ -1,5 +1,8 @@
 /*    */ package ch13;
-/*    */ 
+
+import java.util.Arrays;
+
+/*    */
 /*    */ public class SortRectangles {
 /*    */   public static void main(String[] args) {
 /*  5 */     ComparableRectangle[] rectangles = { new ComparableRectangle(3.4D, 5.4D), new ComparableRectangle(13.24D, 55.4D), new ComparableRectangle(7.4D, 35.4D), new ComparableRectangle(1.4D, 25.4D) };

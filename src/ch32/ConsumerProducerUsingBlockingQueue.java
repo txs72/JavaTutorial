@@ -1,7 +1,9 @@
 /*    */ package ch32;
 /*    */ import java.util.concurrent.ArrayBlockingQueue;
 /*    */ import java.util.concurrent.ExecutorService;
-/*    */ 
+import java.util.concurrent.Executors;
+
+/*    */
 /*    */ public class ConsumerProducerUsingBlockingQueue {
 /*  6 */   private static ArrayBlockingQueue<Integer> buffer = new ArrayBlockingQueue<>(2);
 /*    */ 

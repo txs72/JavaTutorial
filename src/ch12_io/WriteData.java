@@ -1,5 +1,9 @@
 /*    */ package ch12_io;
-/*    */ 
+
+import java.io.File;
+import java.io.PrintWriter;
+
+/*    */
 /*    */ public class WriteData {
 /*    */   public static void main(String[] args) throws Exception {
 /*  5 */     File file = new File("scores.txt");

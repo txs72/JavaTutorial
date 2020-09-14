@@ -1,8 +1,9 @@
 /*    */ package ch17;
-/*    */ import java.io.FileOutputStream;
-/*    */ import java.io.ObjectInputStream;
-/*    */ import java.io.ObjectOutputStream;
-/*    */ 
+/*    */ import java.io.*;
+/*    */
+/*    */
+
+/*    */
 /*    */ public class TestObjectStreamForArray {
 /*    */   public static void main(String[] args) throws ClassNotFoundException, IOException {
 /*  8 */     int[] numbers = { 1, 2, 3, 4, 5 };

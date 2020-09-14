@@ -1,7 +1,11 @@
 /*     */ package awt;
-/*     */ import java.awt.Frame;
-/*     */ import java.awt.Panel;
-/*     */ import java.awt.event.WindowEvent;
+/*     */
+
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 /*     */ 
 /*     */ public class MessageGUI implements ActionListener {
 /*     */   private Label sentLabel;
@@ -108,8 +112,3 @@
 /*     */   }
 /*     */ }
 
-
-/* Location:              /Volumes/TXS.128G/hope useful/practice/2020.jar!/awt/MessageGUI.class
- * Java compiler version: 8 (52.0)
- * JD-Core Version:       1.1.3
- */

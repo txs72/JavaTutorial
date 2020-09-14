@@ -1,55 +1,84 @@
-/*    */ package annotation;
-/*    */ 
-/*    */ import java.lang.annotation.Annotation;
-/*    */ import java.lang.reflect.AnnotatedType;
-/*    */ import java.lang.reflect.Method;
-/*    */ 
-/*    */ public class _04_UseTypeUseAnnotation
-/*    */ {
-/*    */   public static void main(String[] args) {
-/*    */     try {
-/* 11 */       Class<?> c = Class.forName("annotation.TypeUseExample");
-/*    */       
-/* 13 */       Annotation[] allAnno = c.getDeclaredAnnotations();
-/* 14 */       for (Annotation a : allAnno) {
-/* 15 */         System.out.println(a);
-/*    */       }
-/*    */       
-/* 18 */       System.out.println("=====================");
-/*    */       
-/* 20 */       AnnotatedType[] annotationInterfaces = c.getAnnotatedInterfaces();
-/* 21 */       System.out.println(annotationInterfaces);
-/* 22 */       for (AnnotatedType annotationInterface : annotationInterfaces) {
-/* 23 */         for (Annotation a : annotationInterface.getAnnotations()) {
-/* 24 */           System.out.println(a);
-/*    */         }
-/*    */       } 
-/*    */       
-/* 28 */       System.out.println(c.isAnnotationPresent((Class)MyNotNull.class));
-/*    */ 
-/*    */ 
-/*    */ 
-/*    */ 
-/*    */ 
-/*    */ 
-/*    */ 
-/*    */ 
-/*    */ 
-/*    */ 
-/*    */       
-/* 40 */       Method method = c.getMethod("foo", new Class[0]);
-/* 41 */       AnnotatedType[] annotatedExceptions = method.getAnnotatedExceptionTypes();
-/* 42 */       System.out.println(annotatedExceptions);
-/*    */     
-/*    */     }
-/* 45 */     catch (Exception e) {
-/* 46 */       e.printStackTrace();
-/*    */     } 
-/*    */   }
-/*    */ }
+package annotation;
 
+import java.io.Serializable;
+import java.lang.annotation.*;
+import java.lang.reflect.AnnotatedType;
+import java.lang.reflect.Method;
+import java.lang.reflect.Parameter;
+import java.util.LinkedList;
+import java.util.List;
 
-/* Location:              /Volumes/TXS.128G/hope useful/practice/2020.jar!/annotation/_04_UseTypeUseAnnotation.class
- * Java compiler version: 8 (52.0)
- * JD-Core Version:       1.1.3
- */
+public class _04_UseTypeUseAnnotation {
+    public static void main(String[] args) {
+        try {
+            Class c = Class.forName("annotation.TypeUseExample");
+
+            System.out.println("---------interface --------");
+
+            // 读取实现接口添加的注解
+            AnnotatedType[] annotationInterfaces = c.getAnnotatedInterfaces();
+            System.out.println(annotationInterfaces);
+            for (AnnotatedType annotationInterface : annotationInterfaces) {
+                for (Annotation a : annotationInterface.getAnnotations()) {
+                    System.out.println(a);
+                    if(a instanceof MyNotNull){
+                        MyNotNull myNotNull = (MyNotNull)a;
+                        System.out.println(myNotNull.value());
+                    }
+                }
+            }
+            System.out.println("-----------------");
+
+            // 读取抛出方法异常的注解
+            Method method = c.getMethod("foo", new Class[]{List.class});
+            AnnotatedType[] annotatedExceptions = method.getAnnotatedExceptionTypes();
+            System.out.println(annotatedExceptions);
+            for (AnnotatedType annotationException : annotatedExceptions) {
+                for (Annotation a : annotationException.getAnnotations()) {
+                    System.out.println(a);
+                    if(a instanceof MyNotNull){
+                        MyNotNull myNotNull = (MyNotNull)a;
+                        System.out.println(myNotNull.value());
+                    }
+                }
+            }
+            System.out.println("-----------------");
+            Parameter[] parameters = method.getParameters();
+            for(Parameter parameter: parameters){
+                System.out.println(parameter);
+                AnnotatedType annotationType = parameter.getAnnotatedType();
+                System.out.println(annotationType);
+                for(Annotation a : annotationType.getAnnotations()){
+                    System.out.println(a);
+                }
+            }
+
+            System.out.println("-----------------");
+            AnnotatedType annotatedReturnTypes = method.getAnnotatedReturnType();
+            System.out.println(annotatedReturnTypes);
+
+            for(Annotation a: annotatedReturnTypes.getDeclaredAnnotations()){
+                System.out.println(a);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+@Target({ElementType.TYPE_USE})
+@Retention(RetentionPolicy.RUNTIME)
+@Documented
+@interface MyNotNull {
+    String value() default "";
+}
+
+class TypeUseExample implements @MyNotNull(value="Serializable") Serializable {
+    public @MyNotNull("Before Return Value") List foo(@MyNotNull("Function Parameter") List list)
+            throws @MyNotNull(value="ClassNotFoundException") ClassNotFoundException {
+        Object obj = new @MyNotNull String("annotation.Test");
+
+        String str = (String) obj;
+        return new LinkedList();
+    }
+}

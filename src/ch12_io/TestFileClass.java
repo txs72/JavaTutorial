@@ -1,5 +1,9 @@
 /*    */ package ch12_io;
-/*    */ 
+
+import java.io.File;
+import java.util.Date;
+
+/*    */
 /*    */ public class TestFileClass {
 /*    */   public static void main(String[] args) {
 /*  5 */     File file = new File("src/ch12_io/TestFileClass.java");

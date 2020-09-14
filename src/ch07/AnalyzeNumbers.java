@@ -1,5 +1,8 @@
 /*    */ package ch07;
-/*    */ 
+
+import java.util.Scanner;
+
+/*    */
 /*    */ public class AnalyzeNumbers {
 /*    */   public static void main(String[] args) {
 /*  5 */     Scanner input = new Scanner(System.in);

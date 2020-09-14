@@ -1,5 +1,7 @@
 /*    */ package ch12_io;
-/*    */ import java.net.URL;
+/*    */ import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 /*    */ import java.util.Scanner;
 /*    */ 
 /*    */ public class ReadFileFromURL {

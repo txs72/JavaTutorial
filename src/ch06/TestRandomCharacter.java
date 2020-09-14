@@ -8,7 +8,7 @@
 /*    */ 
 /*    */     
 /* 10 */     for (int i = 0; i < 175; i++) {
-/* 11 */       char ch = RandomCharacter.getRandomCharacter();
+/* 11 */       char ch = RandomCharacter.getRandomCharacter('a', 'z');
 /* 12 */       if ((i + 1) % 25 == 0) {
 /* 13 */         System.out.println(ch);
 /*    */       } else {

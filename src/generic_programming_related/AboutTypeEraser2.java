@@ -9,10 +9,10 @@
 /*    */ public class AboutTypeEraser2
 /*    */ {
 /*    */   public static void main(String[] args) {
-/* 12 */     MyNode<String> mn = new MyNode(Integer.valueOf(5));
-/* 13 */     Node<String> n = mn;
-/* 14 */     n.setData("Hello");
-/* 15 */     System.out.println(mn.data);
+//     MyNode<String> mn = new MyNode(Integer.valueOf(5));
+//     Node<String> n = mn;
+//     n.setData("Hello");
+//     System.out.println(mn.data);
 /*    */   }
 /*    */ }
 

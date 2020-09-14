@@ -1,8 +1,9 @@
 /*    */ package ch17;
-/*    */ import java.io.DataInputStream;
-/*    */ import java.io.File;
-/*    */ import java.io.FileInputStream;
-/*    */ 
+/*    */ import java.io.*;
+/*    */
+/*    */
+
+/*    */
 /*    */ public class Ch17Q0203 {
 /*    */   public static void main(String[] args) {
 /*  8 */     File f = new File("ex17.dat");
@@ -44,8 +45,8 @@
 /*    */       } 
 /* 45 */     } catch (IOException ioe) {
 /* 46 */       ioe.printStackTrace();
-/*    */     } 
-/* 48 */     System.out.println("numbers sum: " + sum);
+/*    */     }
+    /* 48 */     System.out.println("numbers sum: " + sum);
 /* 49 */     System.out.println("numbers read: " + counter);
 /*    */   }
 /*    */ }

@@ -22,9 +22,7 @@
 /*    */   }
 /*    */ 
 /*    */   
-/*    */   public static char getRandomCharacter() {
-/* 26 */     return getRandomCharacter(false, '￿');
-/*    */   }
+
 /*    */ }
 
 

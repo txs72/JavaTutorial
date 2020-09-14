@@ -8,8 +8,8 @@
 /*  8 */     ArrayList<String> cityList = new ArrayList<>();
 /*  9 */     ArrayList<String> myList = new ArrayList();
 /* 10 */     myList.add("Hello");
-/* 11 */     myList.add(new Integer(1));
-/* 12 */     myList.add(new MyCircle());
+//     myList.add(new Integer(1));
+//     myList.add(new MyCircle());
 /*    */ 
 /*    */     
 /* 15 */     cityList.add("London");

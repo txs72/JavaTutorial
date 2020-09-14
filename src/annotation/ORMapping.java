@@ -4,13 +4,30 @@ import java.lang.annotation.*;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
+class ORM{
+    static void execute(MyRecord myRecord){
+        // 生成sql语句 select
+        // 完成相应的数据库操作
+    }
+    static void save(MyRecord myRecord){
+        // 生成相应的insert SQL语句
+        // 执行SQL
+    }
+}
 public class ORMapping {
     public static void main(String[] args) {
-        MyRecord record1 = new MyRecord("123", "34");
+        MyRecord record1 = new MyRecord("123", "34"); // _id - 123 username 34
         MyRecord record2 = new MyRecord("123", "test");
         MyRecord record3 = new MyRecord("", "test1,test2,test3,test4");
-        // ORM.execute(record1)
-        // ORM.save(new MyRecord())
+        ORM.execute(record1);
+        ORM.save(record1);
+
+
+
+
+
+
+
         String sql1 = assembleSqlFromObj(record1);
         String sql2 = assembleSqlFromObj(record2);
         String sql3 = assembleSqlFromObj(record3);
@@ -29,14 +46,14 @@ public class ORMapping {
         sql.append("select * from " + tableName + " where 1=1 ");
         Field[] fileds = obj.getClass().getDeclaredFields();
         for (Field f : fileds) {
-            String fieldName = f.getName();
+            String fieldName = f.getName(); // tt -> getTt
             String methodName = "get" + fieldName.substring(0, 1).toUpperCase()
                     + fieldName.substring(1);
             try {
                 Column column = f.getAnnotation(Column.class);
                 if (column != null) {
                     Method method = obj.getClass().getMethod(methodName);
-                    String value = (String) method.invoke(obj);
+                    String value = (String) method.invoke(obj); // id
                     if (value != null && !value.equals("")) {
                         if (!isNum(column.value()) && !isNum(value)) {
                             // 判断参数是不是 in 类型参数 1,2,3
@@ -88,10 +105,9 @@ public class ORMapping {
     String value() default "";
 }
 
-@Table("TestTable")
+@Table("MyRecord")
 class MyRecord {
 
-    @Deprecated
     private String tt;
 
     @Column("_id")
